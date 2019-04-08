@@ -19,28 +19,25 @@ public class EmployeeModel {
     }
 
 
-    public boolean register (Employee employee) {
+    public boolean register(Employee employee) {
         try {
             initConnection();
             PreparedStatement preparedStatement =
-                    connection.prepareStatement("insert into employees ( name, address, email, account, password, createAt, updateAt, status) values (?, ?, ?, ?, ?, ?, ?, ?)");
+                    connection.prepareStatement("insert into employees ( name, address, email, account, password) values (?, ?, ?, ?, ?)");
             preparedStatement.setString(1, employee.getName());
             preparedStatement.setString(2, employee.getAddress());
             preparedStatement.setString(3, employee.getEmail());
             preparedStatement.setString(4, employee.getAccount());
             preparedStatement.setString(5, employee.getPassword());
-            preparedStatement.setString(6, employee.getCreateAt());
-            preparedStatement.setString(7, employee.getUpdateAt());
-            preparedStatement.setString(8, employee.getStatus());
             preparedStatement.execute();
             return true;
         } catch (Exception ex) {
-            System.out.println("Có lỗi xảy ra. Vui lòng thử lại sau. Error: " + ex.getMessage());
+            System.out.println("Có lỗi xảy ra khi tạo tài khoản. Vui lòng thử lại sau \nError: " + ex.getMessage());
         }
         return false;
     }
 
-    public boolean checkExisAccount (String account) {
+    public boolean checkExisAccount(String account) {
         try {
             initConnection();
             PreparedStatement preparedStatement =
@@ -50,9 +47,8 @@ public class EmployeeModel {
             if (resultSet.next()) {
                 return true;
             }
-
         } catch (Exception ex) {
-            System.out.println("Có lỗi xảy ra. Vui lòng thử lại sau. Error: " + ex.getMessage());
+            System.out.println("Có lỗi xảy ra. Vui lòng thử lại \nError: " + ex.getMessage());
             return false;
         }
         return false;
@@ -79,7 +75,7 @@ public class EmployeeModel {
                 return employee;
             }
         } catch (Exception ex) {
-            System.out.println("Có lỗi xảy ra. Vui lòng thử lại sau. Error: " + ex.getMessage());
+            System.out.println("Có lỗi xảy ra. Vui lòng thử lại sau \nError: " + ex.getMessage());
         }
         return null;
     }

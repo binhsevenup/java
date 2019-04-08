@@ -11,7 +11,8 @@ public class Employee {
     private String updateAt;
     private String status;
 
-    public Employee( String name, String address, String email, String account, String password) {
+
+    public Employee(String name, String address, String email, String account, String password, String createAt, String updateAt, String status) {
         this.name = name;
         this.address = address;
         this.email = email;
@@ -21,10 +22,6 @@ public class Employee {
         this.updateAt = updateAt;
         this.status = status;
     }
-
-    public Employee(String name, String address, String email, String accounts, String passwords, String createAt, String updateAt, String status) {
-    }
-
 
     public String getName() {
         return name;

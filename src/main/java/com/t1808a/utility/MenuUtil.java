@@ -11,11 +11,11 @@ public class MenuUtil {
 
     public void generateEmployeeMenu(){
         while (true) {
-            System.out.println("--------- Menu -----------");
+            System.out.println("---------------- Menu -----------------");
             System.out.println("<1> Đăng ký.");
             System.out.println("<2> Đăng nhập.");
             System.out.println("<3> Thoát.");
-            System.out.println("--------------------------");
+            System.out.println("---------------------------------------");
             int choice = scanner.nextInt();
             switch (choice){
                 case 1:
